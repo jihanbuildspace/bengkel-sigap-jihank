@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bengkel Motor Sigap | Servis cepat, hasil rapi</title>
+<meta name="description" content="Servis dan perawatan motor cepat, jujur, dan bergaransi. Lihat layanan, paket perawatan, dan jam buka.">
+<style>
+:root{
+  --bg:#f5f5f3; --surface:#ffffff; --ink:#1c1e21; --muted:#5b6068; --line:#dcdcd8;
+  --dark:#25282c; --dark2:#1c1e21; --accent:#c8410b; --accent-ink:#ffffff; --on-dark:#f2f2f0; --on-dark-muted:#b4b8be;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17191c;--surface:#22252a;--ink:#f0f0ee;--muted:#a7abb2;--line:#363a40;--dark:#101214;--accent:#e2571f}}
+:root[data-theme="dark"]{--bg:#17191c;--surface:#22252a;--ink:#f0f0ee;--muted:#a7abb2;--line:#363a40;--dark:#101214;--accent:#e2571f}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Barlow","Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:1rem;line-height:1.6;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",Impact,sans-serif;line-height:1.05;margin:0;font-weight:700;letter-spacing:.01em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 26px;border-radius:4px;font-weight:700;font-size:1rem;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{filter:brightness(1.1)}
+.btn-ghost{border-color:var(--on-dark-muted);color:var(--on-dark)}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-outline{border-color:var(--ink);color:var(--ink)}
+section{padding:72px 0}
+.section-head{max-width:640px;margin-bottom:36px}
+.section-head h2{font-size:clamp(2rem,6vw,3rem)}
+.section-head p{color:var(--muted);margin-top:12px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:var(--dark2);color:var(--on-dark);padding-top:env(safe-area-inset-top,0px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:"Barlow Condensed","Arial Narrow",Impact,sans-serif;font-weight:700;font-size:1.5rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand i{display:inline-block;width:14px;height:26px;background:var(--accent);transform:skewX(-14deg)}
+.nav ul{display:none;list-style:none;margin:0;padding:0;gap:28px}
+.nav ul a{text-decoration:none;color:var(--on-dark-muted);font-weight:600}
+.nav ul a:hover{color:#fff}
+.nav .btn{min-height:40px;padding:0 18px;font-size:.95rem}
+@media(min-width:800px){.nav ul{display:flex}}
+
+/* hero */
+.hero{background:var(--dark);color:var(--on-dark);padding:64px 0 72px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:0;bottom:0;width:38%;background:var(--accent);transform:skewX(-14deg);opacity:.95;z-index:0}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;gap:36px}
+.hero h1{font-size:clamp(2.75rem,11vw,5.5rem);max-width:12ch;text-transform:uppercase}
+.hero p.lead{margin-top:20px;max-width:46ch;color:var(--on-dark-muted);font-size:1.1rem}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.facts{background:var(--dark2);border:1px solid #3a3e44;border-radius:6px;padding:22px;display:grid;gap:16px;align-self:end;max-width:420px}
+.facts div{display:flex;gap:14px;align-items:baseline}
+.facts strong{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:2rem;color:#ff8a52;min-width:74px}
+.facts span{color:var(--on-dark-muted);font-size:.95rem}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.4fr 1fr;align-items:end}.hero{padding:96px 0}}
+@media(max-width:899px){.hero::after{width:26%;right:-40px;opacity:.5}}
+
+/* layanan */
+.grid{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:600px){.grid.g2{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.grid.g4{grid-template-columns:repeat(4,1fr)}.grid.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card h3{font-size:1.6rem}
+.card p{color:var(--muted);font-size:.97rem}
+.est{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;font-size:.92rem;flex-wrap:wrap}
+.est b{color:var(--accent)}
+.note{margin-top:18px;color:var(--muted);font-size:.9rem}
+
+/* keunggulan */
+.why{background:var(--dark);color:var(--on-dark)}
+.why .section-head p{color:var(--on-dark-muted)}
+.why .card{background:var(--dark2);border-color:#3a3e44;border-top-color:var(--accent)}
+.why .card p{color:var(--on-dark-muted)}
+.why svg{width:32px;height:32px;stroke:#ff8a52;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* testimoni */
+.quote{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:16px;margin:0;min-width:0}
+.quote blockquote{margin:0;font-size:1.05rem}
+.quote figcaption{color:var(--muted);font-size:.92rem}
+.quote figcaption b{display:block;color:var(--ink)}
+.stars{color:var(--accent);letter-spacing:2px;font-size:1.05rem}
+
+/* kontak */
+.contact{background:var(--surface);border-top:1px solid var(--line)}
+.info{display:grid;gap:18px}
+.info dt{font-weight:700}
+.info dd{margin:2px 0 0;color:var(--muted)}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.c-grid{display:grid;gap:36px}
+@media(min-width:800px){.c-grid{grid-template-columns:1fr 1fr}}
+.box{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:24px}
+.box h3{font-size:1.6rem;margin-bottom:14px}
+footer{background:var(--dark2);color:var(--on-dark-muted);padding:36px 0;font-size:.93rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+footer nav{display:flex;flex-wrap:wrap;gap:18px}
+footer a{color:var(--on-dark);text-decoration:none;font-weight:600}
+footer a:hover{color:#ff8a52}
+.wa-float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.paket .price{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:2.4rem;font-weight:700;color:var(--accent);line-height:1}
+.plan ul{margin:0;padding-left:1.1em;color:var(--muted);display:grid;gap:6px}
+.plan{position:relative}
+.plan.featured{border:2px solid var(--accent);border-top-width:4px}
+.badge{align-self:flex-start;background:var(--accent);color:#fff;font-weight:700;font-size:.85rem;padding:4px 12px;border-radius:3px}
+footer .wrap{gap:12px 24px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#atas" aria-label="Bengkel Motor Sigap, ke atas"><i></i>Motor Sigap</a>
+    <ul>
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#keunggulan">Keunggulan</a></li>
+      <li><a href="#testimoni">Testimoni</a></li>
+      <li><a href="#paket">Paket</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <a class="btn btn-primary" href="https://wa.me/6289671834902?text=Halo%20Bengkel%20Motor%20Sigap%2C%20saya%20mau%20tanya%20layanan." target="_blank" rel="noopener">Hubungi</a>
+  </div>
+</header>
+
+<main id="atas">
+  <!-- 1. Hero -->
+  <section class="hero" aria-labelledby="judul-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="judul-hero">Bengkel Motor Sigap</h1>
+        <p class="lead" style="font-size:1.6rem;color:var(--on-dark);font-weight:600">Servis cepat, hasil rapi</p>
+        <p class="lead">Servis rutin, perbaikan, dan perawatan berkala untuk motor harian Anda.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#layanan">Lihat Layanan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Layanan -->
+  <section id="layanan" aria-labelledby="judul-layanan">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="judul-layanan">Layanan</h2>
+        <p>Empat layanan utama untuk menjaga motor tetap siap jalan.</p>
+      </div>
+      <div class="grid g2">
+        <article class="card"><h3>Servis rutin</h3><p>Pengecekan menyeluruh, setel mesin, dan pembersihan komponen utama.</p><div class="est"><span>Estimasi waktu</span><b>1–2 jam</b></div></article>
+        <article class="card"><h3>Ganti oli</h3><p>Oli mesin diganti sesuai spesifikasi motor Anda, sekalian cek kebocoran.</p><div class="est"><span>Estimasi waktu</span><b>20–30 menit</b></div></article>
+        <article class="card"><h3>Perbaikan mesin</h3><p>Diagnosis dan perbaikan masalah mesin, dari tarikan berat sampai suara kasar.</p><div class="est"><span>Estimasi waktu</span><b>1–3 hari</b></div></article>
+        <article class="card"><h3>Perawatan berkala</h3><p>Perawatan terjadwal per jarak tempuh agar motor awet dan irit.</p><div class="est"><span>Estimasi waktu</span><b>2–3 jam</b></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Keunggulan -->
+  <section id="keunggulan" class="why" aria-labelledby="judul-unggul">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="judul-unggul">Keunggulan</h2>
+        <p>Alasan pemilik motor kembali ke Sigap.</p>
+      </div>
+      <div class="grid g3">
+        <article class="card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <h3>Mekanik berpengalaman</h3><p>Ditangani mekanik yang sudah bertahun-tahun memperbaiki berbagai merek motor.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+          <h3>Suku cadang terjamin</h3><p>Suku cadang original atau setara standar pabrikan, dengan asal yang jelas.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+          <h3>Garansi servis</h3><p>Keluhan yang sama muncul lagi setelah servis, kami kerjakan ulang tanpa biaya jasa.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Testimoni -->
+  <section id="testimoni" aria-labelledby="judul-testi">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="judul-testi">Testimoni pelanggan</h2>
+        <p>Cerita dari pemilik motor yang sudah servis di Sigap.</p>
+      </div>
+      <div class="grid g3">
+        <figure class="quote"><blockquote>Motor matic saya getar parah. Selesai satu jam dan sekarang halus lagi, mekaniknya juga menjelaskan apa yang diganti.</blockquote><figcaption><b>Rudi Hartono</b>Honda Beat</figcaption></figure>
+        <figure class="quote"><blockquote>Ramah dan tidak menyodorkan servis yang tidak perlu. Harganya sesuai perkiraan di awal, jadi saya tenang.</blockquote><figcaption><b>Sari Wulandari</b>Yamaha NMAX</figcaption></figure>
+        <figure class="quote"><blockquote>Pagi saya titip sebelum kerja, sore sudah siap. Hasilnya rapi dan ada garansi, jadi tidak ragu kembali.</blockquote><figcaption><b>Andi Prasetyo</b>Honda Vario</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Paket perawatan -->
+  <section id="paket" class="paket" aria-labelledby="judul-paket">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="judul-paket">Paket perawatan</h2>
+        <p>Bandingkan tiga paket, lengkap dengan harga dan estimasi waktu.</p>
+      </div>
+      <div class="grid g3">
+        <article class="card plan">
+          <h3>Ringan</h3><div class="price">Rp85.000</div>
+          <ul><li>Ganti oli mesin</li><li>Cek rem dan lampu</li><li>Cek tekanan ban</li></ul>
+          <div class="est"><span>Estimasi waktu</span><b>± 1 jam</b></div>
+        </article>
+        <article class="card plan featured">
+          <span class="badge">Paling dipilih</span>
+          <h3>Lengkap</h3><div class="price">Rp185.000</div>
+          <ul><li>Semua isi paket Ringan</li><li>Setel mesin dan bersihkan filter udara</li><li>Ganti busi</li><li>Pelumasan rantai dan kabel</li></ul>
+          <div class="est"><span>Estimasi waktu</span><b>± 2–3 jam</b></div>
+        </article>
+        <article class="card plan">
+          <h3>Berkala</h3><div class="price">Rp295.000</div>
+          <ul><li>Semua isi paket Lengkap</li><li>Cek dan bersihkan CVT atau rantai</li><li>Cek kampas rem dan aki</li><li>Laporan kondisi motor</li></ul>
+          <div class="est"><span>Estimasi waktu</span><b>± 3–4 jam</b></div>
+        </article>
+      </div>
+      <p class="note">Harga adalah data contoh untuk motor harian, belum termasuk suku cadang tambahan.</p>
+    </div>
+  </section>
+
+  <!-- 6. Kontak dan jam buka -->
+  <section id="kontak" class="contact" aria-labelledby="judul-kontak">
+    <div class="wrap c-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:24px">
+          <h2 id="judul-kontak">Kontak dan jam buka</h2>
+          <p>Hubungi kami dulu agar motor Anda cepat ditangani saat tiba.</p>
+        </div>
+        <dl class="info">
+          <div><dt>Alamat</dt><dd>Jl. Raya Ungaran No. 45, Ungaran, Kabupaten Semarang, Jawa Tengah 50511</dd></div>
+          <div><dt>Telepon dan WhatsApp</dt><dd><a href="tel:+6289671834902">0896-7183-4902</a></dd></div>
+        </dl>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://wa.me/6289671834902?text=Halo%20Bengkel%20Motor%20Sigap%2C%20saya%20mau%20tanya%20layanan." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-outline" href="tel:+6289671834902">Telepon</a>
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Ungaran%2C+Kabupaten+Semarang" target="_blank" rel="noopener">Buka peta</a>
+        </div>
+      </div>
+      <div class="box">
+        <h3>Jam buka harian</h3>
+        <table class="hours"><tbody>
+          <tr><td>Senin</td><td>08.00 – 17.00</td></tr>
+          <tr><td>Selasa</td><td>08.00 – 17.00</td></tr>
+          <tr><td>Rabu</td><td>08.00 – 17.00</td></tr>
+          <tr><td>Kamis</td><td>08.00 – 17.00</td></tr>
+          <tr><td>Jumat</td><td>08.00 – 17.00</td></tr>
+          <tr><td>Sabtu</td><td>08.00 – 15.00</td></tr>
+          <tr><td>Minggu</td><td>Tutup</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Bengkel Motor Sigap</span>
+    <nav aria-label="Tautan layanan">
+      <a href="#layanan">Layanan</a>
+      <a href="#paket">Paket perawatan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <span>Buka Sen–Jum 08.00–17.00, Sab 08.00–15.00</span>
+  </div>
+</footer>
+
+<a class="btn btn-primary wa-float" href="https://wa.me/6289671834902?text=Halo%20Bengkel%20Motor%20Sigap%2C%20saya%20mau%20tanya%20layanan." target="_blank" rel="noopener" aria-label="Hubungi lewat WhatsApp">WhatsApp</a>
+</body>
+</html>
