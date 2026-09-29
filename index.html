@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengkel Motor Sigap - Servis Cepat, Hasil Rapi & Terpercaya</title>
+    
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#09090b',
+                            card: '#18181b',
+                            border: '#27272a',
+                            muted: '#a1a1aa',
+                            light: '#f4f4f5',
+                            accent: '#dc2626', // High-contrast Red
+                            accentHover: '#b91c1c',
+                            orange: '#ea580c'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #09090b;
+            color: #f4f4f5;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-red {
+            background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(9, 9, 11, 0.75) 0%, rgba(9, 9, 11, 0.95) 80%, #09090b 100%);
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 25px -5px rgba(220, 38, 38, 0.25);
+            border-color: #dc2626;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white overflow-x-hidden">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-brand-accent flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-accent/30 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-wrench"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-wider uppercase font-heading text-white block leading-none">
+                            SIGAP<span class="text-brand-accent">.</span>
+                        </span>
+                        <span class="text-[10px] tracking-widest text-brand-muted uppercase font-semibold">Bengkel Motor</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#beranda" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors">Beranda</a>
+                    <a href="#layanan" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors">Layanan</a>
+                    <a href="#keunggulan" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors">Keunggulan</a>
+                    <a href="#paket" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors">Paket & Harga</a>
+                    <a href="#kalkulator" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors">Kalkulator</a>
+                    <a href="#testimoni" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors">Testimoni</a>
+                    <a href="#kontak" class="text-sm font-medium text-gray-300 hover:text-brand-accent transition-colors">Kontak</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden lg:flex items-center">
+                    <button onclick="openBookingModal('Booking Umum')" class="bg-brand-accent hover:bg-brand-accentHover text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 flex items-center gap-2 shadow-lg shadow-brand-accent/20 hover:shadow-brand-accent/40 active:scale-95">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Booking via WA</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-card border-b border-brand-border px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" class="mobile-link block py-2 text-base font-medium text-gray-300 hover:text-brand-accent">Beranda</a>
+            <a href="#layanan" class="mobile-link block py-2 text-base font-medium text-gray-300 hover:text-brand-accent">Layanan Servis</a>
+            <a href="#keunggulan" class="mobile-link block py-2 text-base font-medium text-gray-300 hover:text-brand-accent">Keunggulan</a>
+            <a href="#paket" class="mobile-link block py-2 text-base font-medium text-gray-300 hover:text-brand-accent">Paket Perawatan</a>
+            <a href="#kalkulator" class="mobile-link block py-2 text-base font-medium text-gray-300 hover:text-brand-accent">Estimasi Biaya</a>
+            <a href="#testimoni" class="mobile-link block py-2 text-base font-medium text-gray-300 hover:text-brand-accent">Testimoni</a>
+            <a href="#kontak" class="mobile-link block py-2 text-base font-medium text-gray-300 hover:text-brand-accent">Kontak & Lokasi</a>
+            <div class="pt-2">
+                <button onclick="openBookingModal('Booking Mobile')" class="w-full bg-brand-accent hover:bg-brand-accentHover text-white py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Booking Servis Sekarang</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Hero Section -->
+        <section id="beranda" class="relative min-h-[90vh] flex items-center justify-center pt-10 pb-20 overflow-hidden">
+            <!-- Background Image with Dark Overlay (Motorcycle Workshop Focus) -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=1920" 
+                     alt="Mekanik Bengkel Motor Sigap" 
+                     class="w-full h-full object-cover object-center scale-105 transform filter brightness-75"
+                     onerror="this.src='https://placehold.co/1920x1080/18181b/ffffff?text=Bengkel+Motor+Sigap'">
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-6">
+                        <!-- Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/15 border border-brand-accent/30 text-brand-accent text-xs font-bold uppercase tracking-wider">
+                            <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+                            Bengkel Sepeda Motor Terpercaya di Semarang
+                        </div>
+
+                        <!-- Main Heading -->
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight">
+                            Servis Cepat, <br class="hidden sm:inline" />
+                            <span class="text-gradient-red">Hasil Rapi</span> & Terpercaya.
+                        </h1>
+
+                        <!-- Sub-heading -->
+                        <p class="text-lg sm:text-xl text-gray-300 max-w-2xl font-light leading-relaxed">
+                            Solusi utama perawatan sepeda motor matic, bebek, dan sport. Ditangani mekanik berpengalaman dengan suku cadang original, transparansi harga, dan garansi resmi.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center md:justify-start">
+                            <button onclick="openBookingModal('Hero Section')" class="w-full sm:w-auto bg-brand-accent hover:bg-brand-accentHover text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-3 shadow-xl shadow-brand-accent/30 hover:scale-105">
+                                <i class="fa-solid fa-calendar-check text-lg"></i>
+                                <span>Booking Servis Sekarang</span>
+                            </button>
+                            
+                            <a href="#layanan" class="w-full sm:w-auto bg-brand-card hover:bg-zinc-800 text-white border border-brand-border px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-2 hover:border-zinc-500">
+                                <span>Lihat Layanan</span>
+                                <i class="fa-solid fa-arrow-down text-sm text-brand-muted"></i>
+                            </a>
+                        </div>
+
+                        <!-- Key Highlights Icons -->
+                        <div class="grid grid-cols-3 gap-4 pt-8 border-t border-brand-border/60 max-w-xl">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-shield-halved text-brand-accent text-xl"></i>
+                                <span class="text-xs sm:text-sm font-medium text-gray-300">Garansi 14 Hari</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-gears text-brand-accent text-xl"></i>
+                                <span class="text-xs sm:text-sm font-medium text-gray-300">Part Original 100%</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-clock text-brand-accent text-xl"></i>
+                                <span class="text-xs sm:text-sm font-medium text-gray-300">Pengerjaan Presisi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual Feature Card -->
+                    <div class="lg:col-span-5 hidden lg:block">
+                        <div class="bg-brand-card/90 backdrop-blur-xl border border-brand-border p-6 rounded-2xl shadow-2xl relative">
+                            <div class="absolute -top-3 -right-3 bg-brand-accent text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                                Buka Hari Ini
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Perawatan Motor Sigap" 
+                                 class="w-full h-64 object-cover rounded-xl mb-6 border border-brand-border"
+                                 onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=Perawatan+Motor'">
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center text-sm">
+                                    <span class="text-brand-muted">Jam Operasional Hari Ini:</span>
+                                    <span class="text-white font-bold">08.00 - 17.00 WIB</span>
+                                </div>
+                                <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-brand-accent h-full w-3/4 rounded-full"></div>
+                                </div>
+                                <p class="text-xs text-brand-muted italic text-center pt-1">
+                                    <i class="fa-solid fa-circle-info text-brand-accent mr-1"></i>
+                                    Gunakan booking online untuk hindari antrean panjang.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Layanan Servis (4 Kartu Utama) -->
+        <section id="layanan" class="py-24 bg-brand-dark border-t border-brand-border/40 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2">Layanan Utama Bengkel</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">
+                        Solusi Perawatan Lengkap Motor Anda
+                    </p>
+                    <div class="w-20 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                    <p class="mt-4 text-brand-muted text-base">
+                        Setiap pengerjaan dilakukan sesuai SOP pabrikan motor dengan standar alat modern.
+                    </p>
+                </div>
+
+                <!-- 4 Service Cards Grid (PRD US-01) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Card 1: Servis Rutin -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 card-glow flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-zinc-800 rounded-xl flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-gauge-high"></i>
+                            </div>
+                            <div class="inline-block px-3 py-1 rounded-md bg-zinc-800 text-xs text-brand-muted font-semibold mb-3">
+                                <i class="fa-regular fa-clock mr-1 text-brand-accent"></i> Est. 30 - 45 Menit
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">Servis Rutin (Tune-Up)</h3>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                                Pembersihan karburator / throttle body, pembersihan busi, penyetelan rantai & sistem injeksi agar performa mesin selalu prima.
+                            </p>
+                        </div>
+                        <button onclick="openBookingModal('Servis Rutin (Tune-Up)')" class="w-full py-2.5 rounded-lg border border-brand-border bg-zinc-900 text-sm font-semibold text-gray-200 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all">
+                            Pilih Layanan
+                        </button>
+                    </div>
+
+                    <!-- Card 2: Ganti Oli -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 card-glow flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-zinc-800 rounded-xl flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-oil-can"></i>
+                            </div>
+                            <div class="inline-block px-3 py-1 rounded-md bg-zinc-800 text-xs text-brand-muted font-semibold mb-3">
+                                <i class="fa-regular fa-clock mr-1 text-brand-accent"></i> Est. 15 - 20 Menit
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">Ganti Oli & Cairan</h3>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                                Penggantian oli mesin, oli gardan matic, minyak rem, dan air radiator (coolant) menggunakan oli berkualitas original.
+                            </p>
+                        </div>
+                        <button onclick="openBookingModal('Ganti Oli & Cairan')" class="w-full py-2.5 rounded-lg border border-brand-border bg-zinc-900 text-sm font-semibold text-gray-200 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all">
+                            Pilih Layanan
+                        </button>
+                    </div>
+
+                    <!-- Card 3: Perbaikan Mesin -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 card-glow flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-zinc-800 rounded-xl flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <div class="inline-block px-3 py-1 rounded-md bg-zinc-800 text-xs text-brand-muted font-semibold mb-3">
+                                <i class="fa-regular fa-clock mr-1 text-brand-accent"></i> Est. 1 - 3 Hari
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">Perbaikan Mesin & Berat</h3>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                                Overhaul total, pembongkaran mesin, penggantian kampas kopling, perbaikan transmisi, dan urut jalur kelistrikan.
+                            </p>
+                        </div>
+                        <button onclick="openBookingModal('Perbaikan Mesin & Berat')" class="w-full py-2.5 rounded-lg border border-brand-border bg-zinc-900 text-sm font-semibold text-gray-200 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all">
+                            Pilih Layanan
+                        </button>
+                    </div>
+
+                    <!-- Card 4: Perawatan CVT -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 card-glow flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 bg-zinc-800 rounded-xl flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-dharmachakra"></i>
+                            </div>
+                            <div class="inline-block px-3 py-1 rounded-md bg-zinc-800 text-xs text-brand-muted font-semibold mb-3">
+                                <i class="fa-regular fa-clock mr-1 text-brand-accent"></i> Est. 45 - 60 Menit
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">Perawatan CVT & Berkala</h3>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                                Servis CVT lengkap untuk motor matic: pembersihan mangkok, roller, v-belt, serta pemberian pispot gemuk khusus CVT.
+                            </p>
+                        </div>
+                        <button onclick="openBookingModal('Perawatan CVT & Berkala')" class="w-full py-2.5 rounded-lg border border-brand-border bg-zinc-900 text-sm font-semibold text-gray-200 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all">
+                            Pilih Layanan
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Keunggulan & Suku Cadang Original (3 Kartu Utama) -->
+        <section id="keunggulan" class="py-24 bg-zinc-950 border-t border-brand-border/40 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left Copy -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-accent">Mengapa Memilih Sigap?</h2>
+                        <h3 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight leading-tight">
+                            Keunggulan Utama Bengkel Kami
+                        </h3>
+                        <p class="text-brand-muted leading-relaxed">
+                            Kami menggabungkan keahlian teknis mekanik berpengalaman dengan transparansi total demi kenyamanan dan keamanan berkendara Anda.
+                        </p>
+                        
+                        <!-- Visual Image Badge -->
+                        <div class="rounded-xl overflow-hidden border border-brand-border relative mt-6">
+                            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Suku Cadang Motor Original" 
+                                 class="w-full h-48 object-cover"
+                                 onerror="this.src='https://placehold.co/800x400/18181b/ffffff?text=Sparepart+Original'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-4">
+                                <p class="text-xs font-semibold text-gray-200">
+                                    <i class="fa-solid fa-circle-check text-brand-accent mr-1"></i>
+                                    Jaminan 100% Suku Cadang Original Pabrikan
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Cards Grid (3 Cards - PRD US-02) -->
+                    <div class="lg:col-span-7 space-y-6">
+                        
+                        <!-- Feature 1 -->
+                        <div class="bg-brand-card border border-brand-border p-6 rounded-2xl flex items-start gap-5 hover:border-brand-accent transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex-shrink-0 flex items-center justify-center text-brand-accent text-xl">
+                                <i class="fa-solid fa-user-gear"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white mb-1">Mekanik Berpengalaman</h4>
+                                <p class="text-brand-muted text-sm leading-relaxed">
+                                    Mekanik tersertifikasi yang ahli dan berpengalaman menangani berbagai tipe sepeda motor (Honda, Yamaha, Suzuki, Kawasaki).
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="bg-brand-card border border-brand-border p-6 rounded-2xl flex items-start gap-5 hover:border-brand-accent transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex-shrink-0 flex items-center justify-center text-brand-accent text-xl">
+                                <i class="fa-solid fa-box-open"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white mb-1">Suku Cadang Original 100%</h4>
+                                <p class="text-brand-muted text-sm leading-relaxed">
+                                    Hanya menggunakan sparepart terjamin asli dan teruji presisi untuk menjaga usia pakai sepeda motor Anda lebih panjang.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="bg-brand-card border border-brand-border p-6 rounded-2xl flex items-start gap-5 hover:border-brand-accent transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex-shrink-0 flex items-center justify-center text-brand-accent text-xl">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white mb-1">Garansi Servis & Harga Transparan</h4>
+                                <p class="text-brand-muted text-sm leading-relaxed">
+                                    Rincian estimasi biaya dijelaskan di awal tanpa biaya tersembunyi, ditambah garansi servis pengerjaan hingga 14 hari.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: Paket Perawatan & Harga (3 Paket - PRD US-03) -->
+        <section id="paket" class="py-24 bg-brand-dark border-t border-brand-border/40 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Title -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2">Pilihan Terbaik Motor Anda</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">
+                        Paket Perawatan Motor
+                    </p>
+                    <div class="w-20 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                    <p class="mt-4 text-brand-muted text-base">
+                        Pilih paket sesuai kebutuhan berkendara harian Anda dengan estimasi harga transparan.
+                    </p>
+                </div>
+
+                <!-- 3 Package Cards Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                    
+                    <!-- Paket 1: Ringan -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl overflow-hidden flex flex-col justify-between hover:border-zinc-500 transition-all group">
+                        <!-- Package Image -->
+                        <div class="relative h-44 overflow-hidden border-b border-brand-border">
+                            <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Paket Perawatan Ringan Motor" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90"
+                                 onerror="this.src='https://placehold.co/600x400/18181b/ffffff?text=Paket+Ringan'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/40 to-transparent"></div>
+                            <span class="absolute bottom-3 left-4 text-xs font-bold uppercase tracking-widest text-brand-muted bg-zinc-900/80 backdrop-blur-md px-2.5 py-1 rounded border border-brand-border">Paket Basic</span>
+                        </div>
+
+                        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="text-center pb-6 border-b border-brand-border">
+                                    <h3 class="text-2xl font-black text-white">Paket Ringan</h3>
+                                    <div class="mt-4 flex items-baseline justify-center">
+                                        <span class="text-lg font-bold text-brand-accent">Rp</span>
+                                        <span class="text-4xl font-extrabold text-white tracking-tight ml-1">75.000</span>
+                                    </div>
+                                    <span class="text-xs text-brand-muted mt-1 block"><i class="fa-regular fa-clock mr-1 text-brand-accent"></i> Estimasi 30 Menit</span>
+                                </div>
+
+                                <ul class="py-6 space-y-4 text-sm text-gray-300">
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Pemeriksaan Standar Safety 10 Titik</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Ganti Oli Mesin Standard</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Penyetelan Rem Depan & Belakang</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Pencecekan & Pelumasan Rantai / CVT</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-zinc-600 line-through">
+                                        <i class="fa-solid fa-circle-xmark"></i>
+                                        <span>Pembersihan Throttle Body / Injeksi</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button onclick="openBookingModal('Paket Ringan - Rp 75.000')" class="w-full py-3 rounded-xl bg-zinc-800 hover:bg-brand-accent text-white font-bold text-sm transition-colors mt-4">
+                                Pilih Paket Ringan
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Paket 2: Lengkap (PALING DIPILIH - Highlighted) -->
+                    <div class="bg-gradient-to-b from-brand-card to-zinc-900 border-2 border-brand-accent rounded-2xl overflow-hidden flex flex-col justify-between relative shadow-2xl shadow-brand-accent/20 transform lg:-translate-y-3 group">
+                        <!-- Badge Popular -->
+                        <div class="absolute top-3 right-3 z-10 bg-brand-accent text-white px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider shadow-lg">
+                            <i class="fa-solid fa-fire mr-1"></i> Paling Dipilih
+                        </div>
+
+                        <!-- Package Image -->
+                        <div class="relative h-48 overflow-hidden border-b border-brand-border">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Paket Perawatan Lengkap Motor" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90"
+                                 onerror="this.src='https://placehold.co/600x400/18181b/ffffff?text=Paket+Lengkap'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/40 to-transparent"></div>
+                            <span class="absolute bottom-3 left-4 text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-accent/10 border border-brand-accent/30 px-2.5 py-1 rounded backdrop-blur-md">Servis Harian Favorit</span>
+                        </div>
+
+                        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="text-center pb-6 border-b border-brand-border">
+                                    <h3 class="text-2xl font-black text-white">Paket Lengkap</h3>
+                                    <div class="mt-4 flex items-baseline justify-center">
+                                        <span class="text-lg font-bold text-brand-accent">Rp</span>
+                                        <span class="text-5xl font-black text-white tracking-tight ml-1">150.000</span>
+                                    </div>
+                                    <span class="text-xs text-brand-muted mt-1 block"><i class="fa-regular fa-clock mr-1 text-brand-accent"></i> Estimasi 60 Menit</span>
+                                </div>
+
+                                <ul class="py-6 space-y-4 text-sm text-gray-200">
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span class="font-semibold">Tune-up Injeksi / Karburator Presisi</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Ganti Oli Mesin & Oli Gardan Matic</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Servis CVT Full Cleaning / Rantai</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Pemeriksaan Tegangan Aki & Busi</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Penyetelan Komstir & Tekanan Ban</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button onclick="openBookingModal('Paket Lengkap - Rp 150.000')" class="w-full py-4 rounded-xl bg-brand-accent hover:bg-brand-accentHover text-white font-extrabold text-sm uppercase tracking-wider transition-all shadow-lg shadow-brand-accent/30 mt-4">
+                                Booking Paket Lengkap
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Paket 3: Berkala / Comprehensive -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl overflow-hidden flex flex-col justify-between hover:border-zinc-500 transition-all group">
+                        <!-- Package Image -->
+                        <div class="relative h-44 overflow-hidden border-b border-brand-border">
+                            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Paket Perawatan Berkala Motor" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90"
+                                 onerror="this.src='https://placehold.co/600x400/18181b/ffffff?text=Paket+Berkala'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/40 to-transparent"></div>
+                            <span class="absolute bottom-3 left-4 text-xs font-bold uppercase tracking-widest text-brand-muted bg-zinc-900/80 backdrop-blur-md px-2.5 py-1 rounded border border-brand-border">Perawatan Performa</span>
+                        </div>
+
+                        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="text-center pb-6 border-b border-brand-border">
+                                    <h3 class="text-2xl font-black text-white">Paket Berkala</h3>
+                                    <div class="mt-4 flex items-baseline justify-center">
+                                        <span class="text-lg font-bold text-brand-accent">Rp</span>
+                                        <span class="text-4xl font-extrabold text-white tracking-tight ml-1">275.000</span>
+                                    </div>
+                                    <span class="text-xs text-brand-muted mt-1 block"><i class="fa-regular fa-clock mr-1 text-brand-accent"></i> Estimasi 90 Menit</span>
+                                </div>
+
+                                <ul class="py-6 space-y-4 text-sm text-gray-300">
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Semua Layanan Paket Lengkap</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Ganti Minyak Rem & Flush Coolant</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Cleaning Injector & Throttle Body Full</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span>Reset Diagnostic Computer / Sensor ECU</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                        <span class="font-bold text-white">Garansi Pengerjaan 14 Hari</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button onclick="openBookingModal('Paket Berkala - Rp 275.000')" class="w-full py-3 rounded-xl bg-zinc-800 hover:bg-brand-accent text-white font-bold text-sm transition-colors mt-4">
+                                Pilih Paket Berkala
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Service Calculator Section -->
+        <section id="kalkulator" class="py-16 bg-zinc-950 border-t border-brand-border/40">
+        <!-- Section 5: Testimoni Pelanggan (3 Kutipan dengan Foto - PRD US-04) -->
+        <section id="testimoni" class="py-24 bg-brand-dark border-t border-brand-border/40 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2">Ulasan Asli Pemilik Motor</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">
+                        Apa Kata Pelanggan Kami?
+                    </p>
+                    <div class="w-20 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- 3 Testimonial Cards Grid with Rider Photos -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Testimoni 1 -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between relative hover:border-brand-accent transition-colors">
+                        <div class="text-brand-accent text-3xl mb-4">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic leading-relaxed mb-6">
+                            "Servis CVT di Sigap rasanya halus banget, pengerjaan cepat dan mekaniknya transparan ngasitahu mana part yang harus diganti tanpa paksaan."
+                        </p>
+                        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" 
+                                     alt="Foto Budi Santoso" 
+                                     class="w-12 h-12 rounded-full object-cover border-2 border-brand-accent/50"
+                                     onerror="this.src='https://placehold.co/150/18181b/ffffff?text=Budi'">
+                                <div>
+                                    <h4 class="text-white font-bold text-base leading-snug">Budi Santoso</h4>
+                                    <span class="text-xs text-brand-accent font-semibold block">Honda Vario 160</span>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-500 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimoni 2 -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between relative hover:border-brand-accent transition-colors">
+                        <div class="text-brand-accent text-3xl mb-4">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic leading-relaxed mb-6">
+                            "Ganti oli dan tune-up rutin di sini gapernah kecewa. Tempatnya bersih, mekaniknya ramah, ada garansinya juga kalau ada kendala!"
+                        </p>
+                        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150" 
+                                     alt="Foto Rian Pratama" 
+                                     class="w-12 h-12 rounded-full object-cover border-2 border-brand-accent/50"
+                                     onerror="this.src='https://placehold.co/150/18181b/ffffff?text=Rian'">
+                                <div>
+                                    <h4 class="text-white font-bold text-base leading-snug">Rian Pratama</h4>
+                                    <span class="text-xs text-brand-accent font-semibold block">Yamaha NMAX 155</span>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-500 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimoni 3 -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between relative hover:border-brand-accent transition-colors">
+                        <div class="text-brand-accent text-3xl mb-4">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic leading-relaxed mb-6">
+                            "Overhaul dan kelistrikan dikerjakan sangat rapi. Benar-benar bengkel motor rekomendasi di kota ini untuk perawatan motor sport."
+                        </p>
+                        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" 
+                                     alt="Foto Dimas Setiawan" 
+                                     class="w-12 h-12 rounded-full object-cover border-2 border-brand-accent/50"
+                                     onerror="this.src='https://placehold.co/150/18181b/ffffff?text=Dimas'">
+                                <div>
+                                    <h4 class="text-white font-bold text-base leading-snug">Dimas Setiawan</h4>
+                                    <span class="text-xs text-brand-accent font-semibold block">Kawasaki Ninja 250</span>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-500 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Kontak & Jam Buka Harian (PRD US-05) -->
+        <section id="kontak" class="py-24 bg-zinc-950 border-t border-brand-border/40 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Left: Contact Details & Daily Hours -->
+                    <div class="lg:col-span-6 space-y-8">
+                        <div>
+                            <h2 class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2">Lokasi & Kontak</h2>
+                            <h3 class="text-3xl font-extrabold text-white uppercase tracking-tight">
+                                Kunjungi Bengkel Sigap
+                            </h3>
+                            <p class="text-brand-muted mt-2 text-sm">
+                                Siap melayani perawatan kendaraan motor kesayangan Anda setiap hari.
+                            </p>
+                        </div>
+
+                        <!-- Address Box -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-xl flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-base">Alamat Lengkap</h4>
+                                <p class="text-gray-300 text-sm mt-1 leading-relaxed">
+                                    Jl. Raya Motor No. 88, Semarang, Jawa Tengah<br>
+                                    <span class="text-xs text-brand-muted">(Dekat Kampus USM / Depan Indomaret Utama)</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Daily Hours (PRD Requirement: Jam buka harian, bukan mingguan) -->
+                        <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                            <h4 class="text-white font-bold text-base mb-4 flex items-center gap-2">
+                                <i class="fa-regular fa-clock text-brand-accent"></i>
+                                Jam Buka Operasional Harian
+                            </h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between items-center py-1 border-b border-brand-border/40">
+                                    <span class="text-gray-300">Senin - Jumat</span>
+                                    <span class="text-white font-bold bg-zinc-800 px-3 py-1 rounded text-xs">08.00 - 17.00 WIB</span>
+                                </div>
+                                <div class="flex justify-between items-center py-1 border-b border-brand-border/40">
+                                    <span class="text-gray-300">Sabtu</span>
+                                    <span class="text-white font-bold bg-zinc-800 px-3 py-1 rounded text-xs">08.00 - 16.00 WIB</span>
+                                </div>
+                                <div class="flex justify-between items-center py-1">
+                                    <span class="text-gray-300">Minggu</span>
+                                    <span class="text-brand-accent font-bold bg-brand-accent/10 border border-brand-accent/30 px-3 py-1 rounded text-xs">09.00 - 15.00 WIB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <a href="https://wa.me/6281234567890?text=Halo%20Bengkel%20Sigap,%20saya%20ingin%20tanya%20layanan%20servis" 
+                               target="_blank" 
+                               class="bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>WhatsApp Direct</span>
+                            </a>
+                            <a href="tel:081234567890" 
+                               class="bg-zinc-800 hover:bg-zinc-700 text-white p-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 border border-brand-border transition-all">
+                                <i class="fa-solid fa-phone text-brand-accent"></i>
+                                <span>Panggil Langsung</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Embedded Map Placeholder & Navigation Button -->
+                    <div class="lg:col-span-6 flex flex-col justify-between">
+                        <div class="bg-brand-card border border-brand-border rounded-2xl p-4 h-full flex flex-col justify-between">
+                            <!-- Visual Simulated Map Frame -->
+                            <div class="relative w-full h-80 rounded-xl overflow-hidden bg-zinc-900 border border-brand-border flex items-center justify-center group">
+                                <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=800" 
+                                     alt="Map Location" 
+                                     class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=Peta+Lokasi+Bengkel'">
+                                
+                                <div class="absolute text-center p-6 bg-brand-dark/90 backdrop-blur-md border border-brand-border rounded-2xl shadow-2xl max-w-xs">
+                                    <div class="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center text-white mx-auto mb-3 animate-bounce">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <h4 class="text-white font-bold text-sm">Bengkel Motor Sigap</h4>
+                                    <p class="text-xs text-brand-muted mt-1">Semarang, Jawa Tengah</p>
+                                </div>
+                            </div>
+
+                            <a href="https://maps.google.com" target="_blank" class="mt-4 w-full bg-brand-accent hover:bg-brand-accentHover text-white py-3.5 rounded-xl font-bold text-sm text-center flex items-center justify-center gap-2 transition-all">
+                                <i class="fa-solid fa-diamond-turn-right"></i>
+                                <span>Buka Rute di Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Section 7: Footer -->
+    <footer class="bg-black border-t border-brand-border py-12 text-brand-muted text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-brand-border/60">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <a href="#" class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-brand-accent flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-wrench text-xs"></i>
+                        </div>
+                        <span class="text-lg font-black tracking-wider uppercase font-heading text-white">
+                            SIGAP<span class="text-brand-accent">.</span>
+                        </span>
+                    </a>
+                    <p class="text-xs text-brand-muted leading-relaxed">
+                        Bengkel spesialis sepeda motor harian & sport. Hasil rapi, pengerjaan cepat, transparansi biaya, dan bergaransi resmi.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h5 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Navigasi</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#beranda" class="hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="#layanan" class="hover:text-white transition-colors">Layanan Servis</a></li>
+                        <li><a href="#keunggulan" class="hover:text-white transition-colors">Keunggulan Bengkel</a></li>
+                        <li><a href="#paket" class="hover:text-white transition-colors">Paket & Harga</a></li>
+                        <li><a href="#testimoni" class="hover:text-white transition-colors">Testimoni Customer</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Hours Summary -->
+                <div>
+                    <h5 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Jam Buka Ringkas</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex justify-between"><span>Senin - Jumat:</span> <span class="text-white">08.00 - 17.00</span></li>
+                        <li class="flex justify-between"><span>Sabtu:</span> <span class="text-white">08.00 - 16.00</span></li>
+                        <li class="flex justify-between"><span>Minggu:</span> <span class="text-brand-accent font-semibold">09.00 - 15.00</span></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Social Media -->
+                <div>
+                    <h5 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Media Sosial</h5>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-zinc-900 border border-brand-border flex items-center justify-center text-gray-300 hover:text-brand-accent hover:border-brand-accent transition-all">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-zinc-900 border border-brand-border flex items-center justify-center text-gray-300 hover:text-brand-accent hover:border-brand-accent transition-all">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-zinc-900 border border-brand-border flex items-center justify-center text-gray-300 hover:text-brand-accent hover:border-brand-accent transition-all">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-zinc-900 border border-brand-border flex items-center justify-center text-gray-300 hover:text-brand-accent hover:border-brand-accent transition-all">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 text-center text-xs text-brand-muted flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 Bengkel Motor Sigap. Seluruh hak cipta dilindungi.</p>
+                <p class="text-[11px] text-zinc-600">Sesuai Spesifikasi Dokumen PRD-05</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="bg-brand-card border border-brand-border rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl transform transition-all">
+            <!-- Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-brand-muted hover:text-white text-xl p-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">Form Booking Online</span>
+                <h3 class="text-2xl font-extrabold text-white mt-1">Jadwalkan Servis Motor</h3>
+                <p class="text-xs text-brand-muted mt-1">Isi formulir di bawah untuk konfirmasi jadwal via WhatsApp</p>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="booking-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Nama Lengkap</label>
+                    <input type="text" id="cust-name" required placeholder="Contoh: Andi Wijaya" class="w-full bg-zinc-900 border border-brand-border rounded-lg p-3 text-sm text-white focus:outline-none focus:border-brand-accent">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Nomor WhatsApp</label>
+                        <input type="tel" id="cust-phone" required placeholder="0812xxxx" class="w-full bg-zinc-900 border border-brand-border rounded-lg p-3 text-sm text-white focus:outline-none focus:border-brand-accent">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Plat & Tipe Motor</label>
+                        <input type="text" id="cust-bike" required placeholder="H 1234 ABC - Vario" class="w-full bg-zinc-900 border border-brand-border rounded-lg p-3 text-sm text-white focus:outline-none focus:border-brand-accent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Pilihan Paket / Layanan</label>
+                    <input type="text" id="cust-package" readonly class="w-full bg-zinc-800 border border-brand-border rounded-lg p-3 text-sm font-bold text-brand-accent focus:outline-none">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Rencana Tanggal</label>
+                        <input type="date" id="cust-date" required class="w-full bg-zinc-900 border border-brand-border rounded-lg p-3 text-sm text-white focus:outline-none focus:border-brand-accent">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Rencana Jam</label>
+                        <select id="cust-time" required class="w-full bg-zinc-900 border border-brand-border rounded-lg p-3 text-sm text-white focus:outline-none focus:border-brand-accent">
+                            <option value="08:30 WIB">08.30 WIB</option>
+                            <option value="10:00 WIB">10.00 WIB</option>
+                            <option value="13:00 WIB">13.00 WIB</option>
+                            <option value="15:00 WIB">15.00 WIB</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-brand-accent hover:bg-brand-accentHover text-white py-3.5 rounded-xl font-bold text-sm tracking-wider uppercase transition-all shadow-lg shadow-brand-accent/30 mt-4 flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Kirim Booking Ke WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-2xl';
+            }
+        });
+
+        // Close mobile menu on click link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            });
+        });
+
+        // Booking Modal Logic
+        const bookingModal = document.getElementById('booking-modal');
+        const packageInput = document.getElementById('cust-package');
+
+        function openBookingModal(packageName) {
+            packageInput.value = packageName || 'Servis Umum Motor';
+            bookingModal.classList.remove('hidden');
+            
+            // Set default date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('cust-date').value = today;
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+        });
+
+        // Handle Form Submission and Redirect to WhatsApp
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const bike = document.getElementById('cust-bike').value;
+            const pkg = document.getElementById('cust-package').value;
+            const date = document.getElementById('cust-date').value;
+            const time = document.getElementById('cust-time').value;
+
+            const text = `*FORM BOOKING SERVIS BENGKEL SIGAP*%0A%0A` +
+                         `• *Nama:* ${encodeURIComponent(name)}%0A` +
+                         `• *No. WA:* ${encodeURIComponent(phone)}%0A` +
+                         `• *Motor & Plat:* ${encodeURIComponent(bike)}%0A` +
+                         `• *Layanan/Paket:* ${encodeURIComponent(pkg)}%0A` +
+                         `• *Tanggal:* ${encodeURIComponent(date)}%0A` +
+                         `• *Jam:* ${encodeURIComponent(time)}%0A%0A` +
+                         `Mohon konfirmasi ketersediaan slotnya. Terima kasih!`;
+
+            const waUrl = `https://wa.me/6281234567890?text=${text}`;
+            window.open(waUrl, '_blank');
+            closeBookingModal();
+        }
+
+        // Calculator Interactive Logic
+        function calculateTotal() {
+            const multiplier = parseFloat(document.getElementById('calc-type').value);
+            const checkboxes = document.querySelectorAll('.calc-item:checked');
+            
+            let baseSum = 0;
+            checkboxes.forEach(cb => {
+                baseSum += parseInt(cb.value);
+            });
+
+            const total = Math.round(baseSum * multiplier);
+            const formatted = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(total);
+            
+            document.getElementById('calc-total').innerText = formatted;
+        }
+
+        function bookCalculatedEstimate() {
+            const amount = document.getElementById('calc-total').innerText;
+            openBookingModal(`Estimasi Kalkulator (${amount})`);
+        }
+    </script>
+</body>
+</html>
