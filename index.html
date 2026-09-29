@@ -606,6 +606,49 @@
 
         <!-- Interactive Service Calculator Section -->
         <section id="kalkulator" class="py-16 bg-zinc-950 border-t border-brand-border/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2">Estimasi Biaya Servis</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">Hitung kebutuhan servis motor Anda</p>
+                    <div class="w-20 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                    <p class="mt-4 text-brand-muted text-base">Pilih tipe motor dan layanan yang dibutuhkan untuk mendapatkan perkiraan biaya.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <label for="calc-type" class="block text-sm font-semibold text-gray-300 mb-2">Tipe motor</label>
+                        <select id="calc-type" onchange="calculateTotal()" class="w-full bg-zinc-900 border border-brand-border rounded-lg p-3 text-sm text-white focus:outline-none focus:border-brand-accent">
+                            <option value="1">Motor bebek</option>
+                            <option value="1.15">Motor matic</option>
+                            <option value="1.3">Motor sport</option>
+                        </select>
+                        <p class="text-xs text-brand-muted mt-5 mb-3">Pilih layanan yang ingin dihitung:</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center justify-between gap-4 text-sm text-gray-300 cursor-pointer">
+                                <span class="flex items-center gap-3"><input class="calc-item accent-brand-accent" type="checkbox" value="85000" onchange="calculateTotal()"> Servis ringan</span><span class="text-brand-muted">Rp85.000</span>
+                            </label>
+                            <label class="flex items-center justify-between gap-4 text-sm text-gray-300 cursor-pointer">
+                                <span class="flex items-center gap-3"><input class="calc-item accent-brand-accent" type="checkbox" value="150000" onchange="calculateTotal()"> Tune-up mesin</span><span class="text-brand-muted">Rp150.000</span>
+                            </label>
+                            <label class="flex items-center justify-between gap-4 text-sm text-gray-300 cursor-pointer">
+                                <span class="flex items-center gap-3"><input class="calc-item accent-brand-accent" type="checkbox" value="125000" onchange="calculateTotal()"> Servis CVT / rantai</span><span class="text-brand-muted">Rp125.000</span>
+                            </label>
+                            <label class="flex items-center justify-between gap-4 text-sm text-gray-300 cursor-pointer">
+                                <span class="flex items-center gap-3"><input class="calc-item accent-brand-accent" type="checkbox" value="75000" onchange="calculateTotal()"> Ganti oli dan pengecekan</span><span class="text-brand-muted">Rp75.000</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="bg-brand-accent rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <p class="text-sm font-semibold text-red-100">Perkiraan total biaya</p>
+                            <output id="calc-total" class="block text-4xl sm:text-5xl font-black text-white mt-3">Rp0</output>
+                            <p class="text-xs text-red-100 mt-3">Harga dapat berubah sesuai kondisi motor dan suku cadang tambahan.</p>
+                        </div>
+                        <button type="button" onclick="bookCalculatedEstimate()" class="w-full mt-8 py-3 rounded-xl bg-white text-brand-accent hover:bg-red-50 font-bold text-sm transition-colors">Booking dengan estimasi ini</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Section 5: Testimoni Pelanggan (3 Kutipan dengan Foto - PRD US-04) -->
         <section id="testimoni" class="py-24 bg-brand-dark border-t border-brand-border/40 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
