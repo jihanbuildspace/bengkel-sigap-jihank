@@ -48,6 +48,9 @@ section{padding:72px 0}
 .hero::after{content:"";position:absolute;right:-60px;top:0;bottom:0;width:38%;background:var(--accent);transform:skewX(-14deg);opacity:.95;z-index:0}
 .hero .wrap{position:relative;z-index:1}
 .hero-grid{display:grid;gap:36px}
+.hero-photo{margin:0;min-height:280px;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-radius:6px;position:relative;background:#111}
+.hero-photo img{width:100%;height:100%;min-height:280px;display:block;object-fit:cover}
+.hero-photo figcaption{position:absolute;left:16px;bottom:16px;background:rgba(28,30,33,.86);color:var(--on-dark);padding:7px 10px;font-size:.82rem}
 .hero h1{font-size:clamp(2.25rem,9vw,4.5rem);max-width:12ch;text-transform:uppercase}
 .hero p.lead{margin-top:20px;max-width:46ch;color:var(--on-dark-muted);font-size:1.1rem}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
@@ -55,8 +58,9 @@ section{padding:72px 0}
 .facts div{display:flex;gap:14px;align-items:baseline}
 .facts strong{font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:2rem;color:#ff8a52;min-width:74px}
 .facts span{color:var(--on-dark-muted);font-size:.95rem}
-@media(min-width:900px){.hero-grid{grid-template-columns:1.4fr 1fr;align-items:end}.hero{padding:96px 0}}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr;align-items:end}.hero{padding:96px 0}}
 @media(max-width:899px){.hero::after{width:26%;right:-40px;opacity:.5}}
+@media(max-width:599px){.hero-photo{min-height:220px}.hero-photo img{min-height:220px}}
 
 /* layanan */
 .grid{display:grid;gap:18px;grid-template-columns:1fr}
@@ -64,6 +68,8 @@ section{padding:72px 0}
 @media(min-width:960px){.grid.g4{grid-template-columns:repeat(4,1fr)}.grid.g3{grid-template-columns:repeat(3,1fr)}}
 .card{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
 .card h3{font-size:1.6rem}
+.card-photo{height:150px;margin:-24px -24px 8px;overflow:hidden;background:var(--dark2)}
+.card-photo img{width:100%;height:100%;display:block;object-fit:cover}
 .card p{color:var(--muted);font-size:.97rem}
 .est{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;font-size:.92rem;flex-wrap:wrap}
 .est b{color:var(--accent)}
@@ -81,6 +87,8 @@ section{padding:72px 0}
 .quote blockquote{margin:0;font-size:1.05rem}
 .quote figcaption{color:var(--muted);font-size:.92rem}
 .quote figcaption b{display:block;color:var(--ink)}
+.quote-photo{width:56px;height:56px;margin:0;border-radius:50%;overflow:hidden;border:3px solid var(--accent)}
+.quote-photo img{width:100%;height:100%;display:block;object-fit:cover}
 .stars{color:var(--accent);letter-spacing:2px;font-size:1.05rem}
 
 /* kontak */
@@ -108,6 +116,8 @@ footer a:hover{color:#ff8a52}
 .plan{position:relative}
 .plan.featured{border:2px solid var(--accent);border-top-width:4px}
 .badge{align-self:flex-start;background:var(--accent);color:#fff;font-weight:700;font-size:.85rem;padding:4px 12px;border-radius:3px}
+.plan-photo{height:100px;margin:-24px -24px 4px;overflow:hidden}
+.plan-photo img{width:100%;height:100%;display:block;object-fit:cover}
 footer .wrap{gap:12px 24px}
 </style>
 </head>
@@ -139,6 +149,10 @@ footer .wrap{gap:12px 24px}
           <a class="btn btn-primary" href="#layanan">Lihat Layanan</a>
         </div>
       </div>
+      <figure class="hero-photo">
+        <img src="motorcycle%20garage%20mechanic.jpg" alt="Motor sedang dikerjakan di area bengkel" width="736" height="981" fetchpriority="high">
+        <figcaption>Siap jalan setiap hari</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -150,10 +164,10 @@ footer .wrap{gap:12px 24px}
         <p>Empat layanan utama untuk menjaga motor tetap siap jalan.</p>
       </div>
       <div class="grid g2">
-        <article class="card"><h3>Servis rutin</h3><p>Pengecekan menyeluruh, setel mesin, dan pembersihan komponen utama.</p><div class="est"><span>Estimasi waktu</span><b>1–2 jam</b></div></article>
-        <article class="card"><h3>Ganti oli</h3><p>Oli mesin diganti sesuai spesifikasi motor Anda, sekalian cek kebocoran.</p><div class="est"><span>Estimasi waktu</span><b>20–30 menit</b></div></article>
-        <article class="card"><h3>Perbaikan mesin</h3><p>Diagnosis dan perbaikan masalah mesin, dari tarikan berat sampai suara kasar.</p><div class="est"><span>Estimasi waktu</span><b>1–3 hari</b></div></article>
-        <article class="card"><h3>Perawatan berkala</h3><p>Perawatan terjadwal per jarak tempuh agar motor awet dan irit.</p><div class="est"><span>Estimasi waktu</span><b>2–3 jam</b></div></article>
+        <article class="card"><div class="card-photo"><img src="motorcycle%20garage%20mechanic.jpg" alt="Motor sedang menjalani servis rutin" width="736" height="981" loading="lazy"></div><h3>Servis rutin</h3><p>Pengecekan menyeluruh, setel mesin, dan pembersihan komponen utama.</p><div class="est"><span>Estimasi waktu</span><b>1–2 jam</b></div></article>
+        <article class="card"><div class="card-photo"><img src="motorcycle%20garage%20mechanic.jpg" alt="Motor dan perlengkapan oli di area bengkel" width="736" height="981" loading="lazy" style="object-position:70% 78%"></div><h3>Ganti oli</h3><p>Oli mesin diganti sesuai spesifikasi motor Anda, sekalian cek kebocoran.</p><div class="est"><span>Estimasi waktu</span><b>20–30 menit</b></div></article>
+        <article class="card"><div class="card-photo"><img src="motorcycle%20garage%20mechanic.jpg" alt="Detail motor untuk diagnosis dan perbaikan mesin" width="736" height="981" loading="lazy" style="object-position:35% 55%"></div><h3>Perbaikan mesin</h3><p>Diagnosis dan perbaikan masalah mesin, dari tarikan berat sampai suara kasar.</p><div class="est"><span>Estimasi waktu</span><b>1–3 hari</b></div></article>
+        <article class="card"><div class="card-photo"><img src="motorcycle%20garage%20mechanic.jpg" alt="Motor siap menjalani perawatan berkala" width="736" height="981" loading="lazy" style="object-position:82% 30%"></div><h3>Perawatan berkala</h3><p>Perawatan terjadwal per jarak tempuh agar motor awet dan irit.</p><div class="est"><span>Estimasi waktu</span><b>2–3 jam</b></div></article>
       </div>
     </div>
   </section>
@@ -190,9 +204,9 @@ footer .wrap{gap:12px 24px}
         <p>Cerita dari pemilik motor yang sudah servis di Sigap.</p>
       </div>
       <div class="grid g3">
-        <figure class="quote"><blockquote>Motor matic saya getar parah. Selesai satu jam dan sekarang halus lagi, mekaniknya juga menjelaskan apa yang diganti.</blockquote><figcaption><b>Rudi Hartono</b>Honda Beat</figcaption></figure>
-        <figure class="quote"><blockquote>Ramah dan tidak menyodorkan servis yang tidak perlu. Harganya sesuai perkiraan di awal, jadi saya tenang.</blockquote><figcaption><b>Sari Wulandari</b>Yamaha NMAX</figcaption></figure>
-        <figure class="quote"><blockquote>Pagi saya titip sebelum kerja, sore sudah siap. Hasilnya rapi dan ada garansi, jadi tidak ragu kembali.</blockquote><figcaption><b>Andi Prasetyo</b>Honda Vario</figcaption></figure>
+        <figure class="quote"><div class="quote-photo"><img src="motorcycle%20garage%20mechanic.jpg" alt="Motor Honda Beat milik Rudi" width="736" height="981" loading="lazy" style="object-position:18% 45%"></div><blockquote>Motor matic saya getar parah. Selesai satu jam dan sekarang halus lagi, mekaniknya juga menjelaskan apa yang diganti.</blockquote><figcaption><b>Rudi Hartono</b>Honda Beat</figcaption></figure>
+        <figure class="quote"><div class="quote-photo"><img src="motorcycle%20garage%20mechanic.jpg" alt="Motor Yamaha NMAX milik Sari" width="736" height="981" loading="lazy" style="object-position:82% 45%"></div><blockquote>Ramah dan tidak menyodorkan servis yang tidak perlu. Harganya sesuai perkiraan di awal, jadi saya tenang.</blockquote><figcaption><b>Sari Wulandari</b>Yamaha NMAX</figcaption></figure>
+        <figure class="quote"><div class="quote-photo"><img src="motorcycle%20garage%20mechanic.jpg" alt="Motor Honda Vario milik Andi" width="736" height="981" loading="lazy" style="object-position:52% 78%"></div><blockquote>Pagi saya titip sebelum kerja, sore sudah siap. Hasilnya rapi dan ada garansi, jadi tidak ragu kembali.</blockquote><figcaption><b>Andi Prasetyo</b>Honda Vario</figcaption></figure>
       </div>
     </div>
   </section>
@@ -206,17 +220,20 @@ footer .wrap{gap:12px 24px}
       </div>
       <div class="grid g3">
         <article class="card plan">
+          <div class="plan-photo"><img src="motorcycle%20garage%20mechanic.jpg" alt="Paket servis ringan untuk motor" width="736" height="981" loading="lazy" style="object-position:20% 85%"></div>
           <h3>Ringan</h3><div class="price">Rp85.000</div>
           <ul><li>Ganti oli mesin</li><li>Cek rem dan lampu</li><li>Cek tekanan ban</li></ul>
           <div class="est"><span>Estimasi waktu</span><b>± 1 jam</b></div>
         </article>
         <article class="card plan featured">
+          <div class="plan-photo"><img src="motorcycle%20garage%20mechanic.jpg" alt="Paket servis lengkap untuk motor" width="736" height="981" loading="lazy" style="object-position:50% 55%"></div>
           <span class="badge">Paling dipilih</span>
           <h3>Lengkap</h3><div class="price">Rp185.000</div>
           <ul><li>Semua isi paket Ringan</li><li>Setel mesin dan bersihkan filter udara</li><li>Ganti busi</li><li>Pelumasan rantai dan kabel</li></ul>
           <div class="est"><span>Estimasi waktu</span><b>± 2–3 jam</b></div>
         </article>
         <article class="card plan">
+          <div class="plan-photo"><img src="motorcycle%20garage%20mechanic.jpg" alt="Paket perawatan berkala untuk motor" width="736" height="981" loading="lazy" style="object-position:85% 25%"></div>
           <h3>Berkala</h3><div class="price">Rp295.000</div>
           <ul><li>Semua isi paket Lengkap</li><li>Cek dan bersihkan CVT atau rantai</li><li>Cek kampas rem dan aki</li><li>Laporan kondisi motor</li></ul>
           <div class="est"><span>Estimasi waktu</span><b>± 3–4 jam</b></div>
